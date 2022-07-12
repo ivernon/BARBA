@@ -4,8 +4,7 @@
 
 ### Created using R version 4.1.2 (2021-11-01) -- "Bird Hippie" ###
 
-### Adjust this address to point to directory where "ToyModelMCMC_for_BABA_paper1.R" is ###
-#setwd("/Users/ianvernon/Work/A Bayesian Analysis of a Bayesian Analysis/Paper 1/Toy Model Code for release/Toy Model Code Prerelease V2/")
+### Ensure current working directory is set to that of "Example_Model_Robust_Bayesian_Analysis_main.R" ###
 
 ### plotting directory ###
 plot_dir <- "plots/"
