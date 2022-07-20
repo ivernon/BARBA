@@ -495,7 +495,7 @@ for(out_mv in 1:2){			# do full loop over both outputs: posterior mean (out_mv=1
   if(out_mv==2){            # just do SD output
     grey.cols <- function(n) grey(n:1/n)
     hsca <- 10 								# divide range into rough h value
-    for(case in 1:2){         # Case 2 and 3 in paper
+    for(case in c(1,3)){         # Case 2 and 4 in paper
       pdf(paste(plot_dir,"SupMat_Figure4_Bivar_den_out",out_mv,"_case_",case+1,".pdf",sep=""),
           width=0.9*8.0,height=0.9*7.1)    # SupMat Figure 4
       den <- kde2d(min1[,case],max1[,case],n=65,h=c(diff(range(min1[,case]))/hsca,diff(range(max1[,case]))/hsca),
@@ -710,7 +710,7 @@ colnames(Table2_contents) <- c(" $f_1(x)$","$\\frac{\\partial f_1(x)}{\\partial 
 Table2_contents      # The contents of Table 2 in main paper, giving partial derivatives for Case 1.
 
 ### Code to produce latex table ###
-xtab <- xtable(Table2_contents, caption="\\footnotesize{Results of the local sensitivity analysis corresponding to specification case 1. The first row gives the expectation of all requested quantities of interest, namely the posterior mean $f_1(x)$, posterior SD $f_2(x)$ and partial derivatives of each. The second row gives the  corresponding SD of each of these estimates, which could be reduced using further MCMC runs.}",label="tab_case1")
+xtab <- xtable(Table2_contents, caption="\\footnotesize{Results of the local sensitivity analysis corresponding to specification case 1. The first row gives the emulator expectation of all requested quantities of interest, namely the posterior mean $f_1(x)$, posterior SD $f_2(x)$ and partial derivatives of each. The second row gives the corresponding emulator SD of each of these estimates, which could be reduced using further MCMC runs.}",label="tab_case1")
 align(xtab) <- "|r|rrr|rrr|"
 digits(xtab) <- 3
 print(xtab,file=paste(plot_dir,"Table2.tex",sep=""),sanitize.text.function = function(x) {x},floating=TRUE,latex.environments="center")
